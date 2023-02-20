@@ -206,11 +206,11 @@ stages:
         ls -la
       displayName: Install JMeter
     - bash: |
-        apache-jmeter-5.5/bin/jmeter -n -t automatedtesting/jmeter/stress-test.jmx -l log/jmeter/stress-test-result.csv -e -f -o log/jmeter/stress-test-html-report -j log/jmeter/jmeter-stress-test.log
+        apache-jmeter-5.5/bin/jmeter -n -t automatedtesting/jmeter/StressTest.jmx -l log/jmeter/stress-test-result.csv -e -f -o log/jmeter/stress-test-html-report -j log/jmeter/jmeter-stress-test.log
         cat log/jmeter/jmeter-stress-test.log
       displayName: JMeter stress test
     - bash: |
-        apache-jmeter-5.5/bin/jmeter -n -t automatedtesting/jmeter/endurance-test.jmx -l log/jmeter/endurance-test-result.csv -e -f -o log/jmeter/endurance-test-html-report -j log/jmeter/jmeter-endurance-test.log
+        apache-jmeter-5.5/bin/jmeter -n -t automatedtesting/jmeter/EnduranceTest.jmx -l log/jmeter/endurance-test-result.csv -e -f -o log/jmeter/endurance-test-html-report -j log/jmeter/jmeter-endurance-test.log
         cat log/jmeter/jmeter-endurance-test.log
       displayName: JMeter endurance test
     - task: ArchiveFiles@2
