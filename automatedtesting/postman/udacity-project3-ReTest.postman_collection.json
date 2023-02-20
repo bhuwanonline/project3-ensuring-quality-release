@@ -1,0 +1,178 @@
+{
+	"info": {
+		"_postman_id": "ae256d35-da1c-45d8-be4c-a5d97bc79822",
+		"name": "udacity-project3-ReTest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "8015859"
+	},
+	"item": [
+		{
+			"name": "CreateBooks",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Create Book\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/{{path}}?book={{name_book}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"{{path}}"
+					],
+					"query": [
+						{
+							"key": "book",
+							"value": "{{name_book}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Get All Books Info\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/{{path}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"{{path}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get by Id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Get Book by id\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/{{path}}/{{id}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"{{path}}",
+						"{{id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Update Book\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/{{path}}?book={{name_book_up}}&id={{id}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"{{path}}"
+					],
+					"query": [
+						{
+							"key": "book",
+							"value": "{{name_book_up}}"
+						},
+						{
+							"key": "id",
+							"value": "{{id}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Delete Book\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/{{path}}/{{id}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"{{path}}",
+						"{{id}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

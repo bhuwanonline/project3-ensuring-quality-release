@@ -1,0 +1,193 @@
+{
+	"info": {
+		"_postman_id": "836400c3-f7a9-445a-b142-945b5b1800d1",
+		"name": "udacity-project3-ValTest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "8015859"
+	},
+	"item": [
+		{
+			"name": "Get All",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json();\r",
+							"\r",
+							"var expectedBooks = 200;\r",
+							"\r",
+							"pm.test(\"Found books with IDs 3 - \" + expectedBooks, function () {\r",
+							"    for (i = 0; i < expectedBooks; i++) {\r",
+							"        pm.expect(jsonData[i].ID).to.eql(i+1);\r",
+							"    }\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Total books found: \" + expectedBooks, function () {\r",
+							"    pm.expect(jsonData.length).to.eql(expectedBooks);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/{{path}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"{{path}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateBooks",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Create Book\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/{{path}}?book={{name_book}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"{{path}}"
+					],
+					"query": [
+						{
+							"key": "book",
+							"value": "{{name_book}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Delete Book\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/{{path}}/{{id}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"{{path}}",
+						"{{id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Update Book\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/{{path}}?book={{name_book_up}}&id={{id}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"{{path}}"
+					],
+					"query": [
+						{
+							"key": "book",
+							"value": "{{name_book_up}}"
+						},
+						{
+							"key": "id",
+							"value": "{{id}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get by Id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Book with ID 3 as expected\", function () {\r",
+							"    pm.expect(jsonData.ID).to.eql(3);\r",
+							"    pm.expect(jsonData.Title).to.eql(\"Harry porter\");\r",
+							"    pm.expect(jsonData.PageCount).to.eql(100);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/{{path}}/{{id}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"{{path}}",
+						"{{id}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
